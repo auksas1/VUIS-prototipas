@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VU IS Prototipas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="vu2.jpg" alt="VU logo">
+            <h1>VU Informacinė Sistema</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#tvarkarastis">Tvarkaraštis</a></li>
+                <li><a href="#dokumentai">Dokumentai</a></li>
+                <li><a href="#profilis">Profilis</a></li>
+                <li><a href="#pagalba">Pagalba</a></li>
+                <li><a href="#naujienos">Naujienos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="tvarkarastis">
+            <h2>Tvarkaraščio peržiūra</h2>
+            <p>Pasirinkite dieną:</p>
+            <select id="dienos-pasirinkimas">
+                <option value="pirmadienis">Pirmadienis</option>
+                <option value="antradienis">Antradienis</option>
+                <option value="treciadienis">Trečiadienis</option>
+                <option value="ketvirtadienis">Ketvirtadienis</option>
+                <option value="penktadienis">Penktadienis</option>
+            </select>
+            <button onclick="rodytiTvarkarasti()">Peržiūrėti</button>
+            <div id="tvarkarascio-rodymas"></div>
+        </section>
+
+        <section id="dokumentai">
+            <h2>Dokumentų užsakymas</h2>
+            <p>Pasirinkite dokumento tipą:</p>
+            <select id="dokumentu-tipas">
+                <option value="studiju-pazyma">Studijų pažyma</option>
+                <option value="akademine-pazyma">Akademinė pažyma</option>
+                <option value="diplomo-priedas">Diplomo priedas</option>
+            </select>
+            <button onclick="uzsakytiDokumenta()">Užsakyti</button>
+            <div id="uzsakymo-statusas"></div>
+        </section>
+
+        <section id="profilis">
+            <h2>Profilio informacija</h2>
+            <p>Studento vardas: Jonas Petrauskas</p>
+            <p>Fakultetas: Matematikos ir Informatikos fakultetas</p>
+            <p>Studijų programa: Informacinių sistemų inžinerija</p>
+            <button>Redaguoti profilį</button>
+        </section>
+
+        <section id="pagalba">
+            <h2>Pagalbos centras</h2>
+            <p>Jei turite klausimų, susisiekite su technine pagalba:</p>
+            <ul>
+                <li>El. paštas: pagalba@vu.lt</li>
+                <li>Tel. nr.: +370 5 123 4567</li>
+            </ul>
+            <button>Rašyti užklausą</button>
+        </section>
+
+        <section id="naujienos">
+            <h2>Naujienos</h2>
+            <ul>
+                <li><strong>2024-12-01:</strong> Registracija į pavasario semestrą prasideda gruodžio 15 d.</li>
+                <li><strong>2024-11-25:</strong> Naujasis tvarkaraščio modulis jau pasiekiamas sistemoje.</li>
+                <li><strong>2024-11-20:</strong> Pranešimas apie bakalauro darbo gynimų tvarkaraštį.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vilniaus universitetas</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
