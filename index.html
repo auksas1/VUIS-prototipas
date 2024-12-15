@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,7 @@
         <nav>
             <ul>
                 <li><a href="#tvarkarastis">Tvarkaraštis</a></li>
+                <li><a href="#rezultatai">Rezultatai</a></li>                
                 <li><a href="#dokumentai">Dokumentai</a></li>
                 <li><a href="#profilis">Profilis</a></li>
                 <li><a href="#pagalba">Pagalba</a></li>
@@ -24,10 +25,12 @@
     </header>
 
     <main>
+        <!-- Tvarkaraščio sekcija -->
         <section id="tvarkarastis">
             <h2>Tvarkaraščio peržiūra</h2>
             <p>Pasirinkite dieną:</p>
             <select id="dienos-pasirinkimas">
+                <option value="">Pasirinkite dieną</option>
                 <option value="pirmadienis">Pirmadienis</option>
                 <option value="antradienis">Antradienis</option>
                 <option value="treciadienis">Trečiadienis</option>
@@ -38,10 +41,81 @@
             <div id="tvarkarascio-rodymas"></div>
         </section>
 
+        <!-- Studijų rez. sekcija -->
+        <section id="rezultatai">
+            <h2>Studijų rezultatai</h2>
+            <div id="rezultatu-informacija">
+                <p><strong>Kursas:</strong> 2 kursas</p>
+                <p><strong>Semestras:</strong> 3 semestras</p>
+            </div>
+            <button onclick="rodytiRezultatus()">Peržiūrėti</button>
+            <div id="rezultatu-lentele" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dalyko pavadinimas</th>
+                            <th>Kalba</th>
+                            <th>Pasirinkimo tipas</th>
+                            <th>Atsiskaitymo forma</th>
+                            <th>Kreditai</th>
+                            <th>Įvertinimas</th>
+                            <th>Pasiektas lygmuo</th>
+                            <th>Dėstytojas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Algoritmai ir duomenų struktūros</td>
+                            <td>angl.</td>
+                            <td>prival.</td>
+                            <td>egz.</td>
+                            <td>5.0</td>
+                            <td>10</td>
+                            <td>Puikus</td>
+                            <td>M. Sabaliauskas</td>
+                        </tr>
+                        <tr>
+                            <td>Diskrečioji matematika</td>
+                            <td>liet.</td>
+                            <td>prival.</td>
+                            <td>egz.</td>
+                            <td>5.0</td>
+                            <td>5</td>
+                            <td>Slenkstinis</td>
+                            <td>A. Medžiūnas</td>
+                        </tr>
+                        <tr>
+                            <td>Duomenų bazių valdymo sistemos</td>
+                            <td>liet.</td>
+                            <td>prival.</td>
+                            <td>egz.</td>
+                            <td>5.0</td>
+                            <td>8</td>
+                            <td>Slenkstinis</td>
+                            <td>P. Treigys</td>
+                        </tr>
+                        <tr>
+                            <td>Matematinė analizė</td>
+                            <td>liet.</td>
+                            <td>prival.</td>
+                            <td>egz.</td>
+                            <td>5.0</td>
+                            <td>4</td>
+                            <td>Neišlaikyta</td>
+                            <td>R. Kačinskaitė</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+
+        <!-- Dokumentų užsakymo sekcija -->
         <section id="dokumentai">
             <h2>Dokumentų užsakymas</h2>
             <p>Pasirinkite dokumento tipą:</p>
             <select id="dokumentu-tipas">
+                <option value="">Pasirinkite dokumento tipą</option>
                 <option value="studiju-pazyma">Studijų pažyma</option>
                 <option value="akademine-pazyma">Akademinė pažyma</option>
                 <option value="diplomo-priedas">Diplomo priedas</option>
@@ -50,14 +124,22 @@
             <div id="uzsakymo-statusas"></div>
         </section>
 
+        <!-- Profilio sekcija -->
         <section id="profilis">
             <h2>Profilio informacija</h2>
-            <p>Studento vardas: Jonas Petrauskas</p>
-            <p>Fakultetas: Matematikos ir Informatikos fakultetas</p>
-            <p>Studijų programa: Informacinių sistemų inžinerija</p>
-            <button>Redaguoti profilį</button>
+            <div id="profilio-informacija">
+                <p><strong>Vardas, Pavardė:</strong> <span id="vardas">Algimantas Uksas</span></p>
+                <p><strong>Fakultetas:</strong> <span id="fakultetas">Matematikos ir Informatikos fakultetas</span></p>
+                <p><strong>Studijų programa:</strong> <span id="studiju-programa">Informacinių sistemų inžinerija</span></p>
+                <p><strong>Kursas:</strong> <span id="kursas">2</span></p>
+                <p><strong>Grupė:</strong> <span id="grupe">2</span></p>
+                <p><strong>Pogrupis:</strong> <span id="pogrupis">1</span></p>
+            </div>
+            <button onclick="redaguotiProfili()">Redaguoti profilį</button>
+            <button id="saugoti-mygtukas" style="display:none;" onclick="issaugotiProfili()">Išsaugoti</button>
         </section>
-
+        
+        <!-- Pagalbos sekcija -->
         <section id="pagalba">
             <h2>Pagalbos centras</h2>
             <p>Jei turite klausimų, susisiekite su technine pagalba:</p>
@@ -65,15 +147,34 @@
                 <li>El. paštas: pagalba@vu.lt</li>
                 <li>Tel. nr.: +370 5 123 4567</li>
             </ul>
-            <button>Rašyti užklausą</button>
+            <button onclick="rodytiPagalbosForma()">Rašyti užklausą</button>
+        
+            <div id="pagalbos-forma" style="display:none;">
+                <p>Pasirinkite užklausos tipą:</p>
+                <select id="uzklausos-tipai">
+                    <option value="">Pasirinkite užklausos tipą</option>
+                    <option value="technine-problema">Techninė problema</option>
+                    <option value="akademine-informacija">Akademinė informacija</option>
+                    <option value="kita">Kita</option>
+                </select>
+        
+                <p>Užklausos aprašymas:</p>
+                <textarea id="uzklausos-tekstas" rows="5" placeholder="Įrašykite savo užklausą..."></textarea>
+        
+                <button onclick="siustiUzklausa()">Siųsti</button>
+            </div>
+        
+            <div id="pagalbos-statusas"></div>
         </section>
+        
 
+        <!-- Naujienų sekcija -->
         <section id="naujienos">
             <h2>Naujienos</h2>
             <ul>
-                <li><strong>2024-12-01:</strong> Registracija į pavasario semestrą prasideda gruodžio 15 d.</li>
-                <li><strong>2024-11-25:</strong> Naujasis tvarkaraščio modulis jau pasiekiamas sistemoje.</li>
-                <li><strong>2024-11-20:</strong> Pranešimas apie bakalauro darbo gynimų tvarkaraštį.</li>
+                <li><strong>2024-12-01:</strong> Registracija į pavasario semestro BUS prasideda gruodžio 15 d.</li>
+                <li><strong>2024-11-25:</strong> Naujasis tvarkaraščio modelis jau pasiekiamas sistemoje.</li>
+                <li><strong>2024-11-20:</strong> Pranešimas apie bakalaurinių darbų gynimų tvarkaraštį.</li>
             </ul>
         </section>
     </main>
